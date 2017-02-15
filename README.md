@@ -16,7 +16,7 @@
 
 pip install requests xlwt pycookiecheat
 
-###Windows用户注意  
+**Windows用户注意**  
 
 由于pycookiecheat原作者没有支持windows  
 
@@ -28,10 +28,12 @@ pip install requests xlwt pycookiecheat
 
 复制地址栏上的token  
 
-**python2执行**
+**python2执行**  
+
 python2 wxanalysis_py2.py  
 
-**python3执行**
+**python3执行**  
+
 python3 wxanalysis_py3.py
 
 然后输入时间范围和token然后执行
