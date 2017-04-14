@@ -19,6 +19,6 @@ wb = xlwt.Workbook()
 
 # cookies = chrome_cookies('http://127.0.0.1')
 
-response = requests.request('GET', 'http://www.baidu.com', headers={}, params={}, cookies=cookies)
+response = requests.request('GET', 'http://www.baidu.com', headers={}, params={}, cookies={})
 
 respJson = json.loads('{"测试json": true}')
