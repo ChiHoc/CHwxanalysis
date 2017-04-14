@@ -5,4 +5,4 @@ install:
   - pip install --upgrade pytest
 # command to run tests
 script: 
-  - pytest test_py2.py
+  - pytest
