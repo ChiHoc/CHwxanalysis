@@ -12,7 +12,7 @@
 
 （使用py2app和pyinstaller在mac上打包都失败了，尝试打包成功可以PR）  
 
-##Usage  
+## Usage
 
 pip install requests xlwt pycookiecheat
 
