@@ -2,6 +2,7 @@ language: python
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+  - pip install --upgrade pytest
 # command to run tests
 script: 
   - pytest test_py2.py
