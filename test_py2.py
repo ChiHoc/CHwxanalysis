@@ -13,12 +13,14 @@ from datetime import *
 from tkMessageBox import showwarning
 from pycookiecheat import chrome_cookies
 
-beginDate = datetime.strptime('2017-01-01', '%Y-%m-%d')
+def test_module():
+    
+    beginDate = datetime.strptime('2017-01-01', '%Y-%m-%d')
 
-wb = xlwt.Workbook()
+    wb = xlwt.Workbook()
 
-# cookies = chrome_cookies('http://127.0.0.1')
+    # cookies = chrome_cookies('http://127.0.0.1')
 
-response = requests.request('GET', 'http://www.baidu.com', headers={}, params={}, cookies={})
+    response = requests.request('GET', 'http://www.baidu.com', headers={}, params={}, cookies={})
 
-respJson = json.loads('{"测试json": true}')
+    respJson = json.loads('{"测试json": true}')
