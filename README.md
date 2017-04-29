@@ -39,3 +39,7 @@ python2 wxanalysis_py2.py
 python3 wxanalysis_py3.py
 
 然后输入时间范围和token然后执行
+
+## LICENSE
+
+MIT
