@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/ChiHoc/CHwxanalysis.svg?branch=master)](https://travis-ci.org/ChiHoc/CHwxanalysis)
 
+# CHwxanalysis
+
 微信公众平台文章统计数据爬虫  
 
 因为微信的文章详细统计只能选择7天的范围  
@@ -14,9 +16,7 @@
 
 （使用py2app和pyinstaller在mac上打包都失败了，尝试打包成功可以PR）  
 
-## Usage
-
-pip install requests xlwt pycookiecheat
+## Install
 
 **Windows用户注意**  
 
@@ -24,22 +24,30 @@ pip install requests xlwt pycookiecheat
 
 请到这下载支持win的版本：https://github.com/ChiHoc/pycookiecheat  
 
----
+**事前准备：**
 
-首先使用Chrome登录微信公众平台  
+`pip install requests xlwt pycookiecheat pyinstaller`
 
-复制地址栏上的token  
+**打包：**
 
-**python2执行**  
+`pyinstaller --onefile wxanalysis.py`
 
-python2 wxanalysis_py2.py  
+## Command Line
 
-**python3执行**  
+**python2执行：**  
 
-python3 wxanalysis_py3.py
+`python2 wxanalysis_py2.py`  
 
-然后输入时间范围和token然后执行
+**python3执行：**  
 
-## LICENSE
+`python3 wxanalysis_py3.py`
 
-MIT
+## Usage
+
+打开程序，输入要统计的日期范围 
+
+使用**Chrome浏览器**登录微信公众平台  
+
+复制地址栏上的token到程序token输入框，然后运行
+
+excel文件将会输出到程序文件夹
