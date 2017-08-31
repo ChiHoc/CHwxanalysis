@@ -8,13 +8,9 @@
 
 因为微信的文章详细统计只能选择7天的范围  
 
-因此写了一个程序来获取指定日期范围的统计数据  
-
-同时对数据进行格式化  
+因此写了一个程序来获取指定日期范围的统计数据，并对数据进行格式化  
 
 同时提供了Python2和Python3两个版本，和windows的打包版。  
-
-（使用py2app和pyinstaller在mac上打包都失败了，尝试打包成功可以PR）  
 
 ## Install
 
@@ -28,9 +24,13 @@
 
 `pip install requests xlwt pycookiecheat pyinstaller`
 
-**打包：**
+**Windows打包**
 
-`pyinstaller --onefile wxanalysis.py`
+`pyinstaller -F -w wxanalysis.py`
+
+**Mac打包**
+
+目前使用py2app和pyinstaller在mac上打包都失败了，尝试打包成功可以PR
 
 ## Command Line
 
