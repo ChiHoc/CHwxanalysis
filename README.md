@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/ChiHoc/CHwxanalysis.svg?branch=master)](https://travis-ci.org/ChiHoc/CHwxanalysis)
 
-# CHwxanalysis
-
 微信公众平台文章统计数据爬虫  
 
 因为微信的文章详细统计只能选择7天的范围  
