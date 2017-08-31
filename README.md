@@ -28,7 +28,9 @@
 
 **Mac打包**
 
-目前使用py2app和pyinstaller在mac上打包都失败了，尝试打包成功可以PR
+目前在mac上打包成功，但是运行失败了。
+
+貌似是tkinker在Sierra上有bug，程序的界面没有设定约束，导致界面渲染出错。
 
 ## Command Line
 
