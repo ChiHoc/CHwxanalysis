@@ -71,6 +71,24 @@ def getSheet(begin_date, end_date):
 
     sheet.write(0, 8, u'收藏次数', regularStyle)
 
+    sheet.write(0, 9, u'公众号会话阅读（一次传播）', regularStyle)
+
+    sheet.write(0, 10, u'公众号分享朋友圈（一次传播）', regularStyle)
+
+    sheet.write(0, 11, u'朋友圈分享（二次传播）', regularStyle)
+
+    sheet.write(0, 12, u'朋友圈阅读（二次传播）', regularStyle)
+
+    sheet.write(0, 13, u'公众号会话', regularStyle)
+
+    sheet.write(0, 14, u'好友转发', regularStyle)
+
+    sheet.write(0, 15, u'朋友圈', regularStyle)
+
+    sheet.write(0, 16, u'历史消息', regularStyle)
+
+    sheet.write(0, 17, u'其它', regularStyle)
+
     return wb, sheet
 
 
@@ -104,6 +122,24 @@ def writeSheet(sheet, start, items):
         sheet.write(index, 7, item['add_to_fav_user'], regularStyle)
 
         sheet.write(index, 8, item['add_to_fav_count'], regularStyle)
+
+        sheet.write(index, 9, item['int_page_from_session_read_user'], regularStyle)
+
+        sheet.write(index, 10, item['feed_share_from_session_user'], regularStyle)
+
+        sheet.write(index, 11, item['feed_share_from_feed_user'], regularStyle)
+
+        sheet.write(index, 12, item['int_page_from_feed_read_user'], regularStyle)
+
+        sheet.write(index, 13, '%.2f%%'%(item['int_page_from_session_read_count']/float(item['int_page_read_count'])*100), regularStyle)
+        
+        sheet.write(index, 14, '%.2f%%'%(item['int_page_from_friends_read_count']/float(item['int_page_read_count'])*100), regularStyle)
+        
+        sheet.write(index, 15, '%.2f%%'%(item['int_page_from_feed_read_count']/float(item['int_page_read_count'])*100), regularStyle)
+        
+        sheet.write(index, 16, '%.2f%%'%(item['int_page_from_hist_msg_read_count']/float(item['int_page_read_count'])*100), regularStyle)
+        
+        sheet.write(index, 17, '%.2f%%'%(item['int_page_from_other_read_count']/float(item['int_page_read_count'])*100), regularStyle)
 
         index = index + 1
 
@@ -233,8 +269,11 @@ def initInputWindow():
     endInput = StringVar()
     tokenInput = StringVar()
 
-    beginInput.set(u'2017-01-01')
-    endInput.set(u'2017-01-15')
+    today=date.today() 
+    sevenDays=timedelta(days=7) 
+    sevenDaysAgo=today-sevenDays 
+    beginInput.set(sevenDaysAgo)
+    endInput.set(today)
 
     Label(window, text=u'开始时间：').grid(row=0)
     Label(window, text=u'结束时间：').grid(row=1)
