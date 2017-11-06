@@ -12,7 +12,22 @@ from Tkinter import *
 from datetime import *
 from tkMessageBox import showwarning
 from pycookiecheat import chrome_cookies
+import sys
+import platform
 
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+if getattr(sys, 'frozen', False):
+    # we are running in a bundle
+    OS = platform.system()
+    if OS == 'Darwin':
+        bundle_dir = os.path.abspath(os.path.dirname(sys.executable) + "/../../../")
+    else:
+        bundle_dir = os.path.dirname(sys.executable)
+else:
+    # we are running in a normal Python environment
+    bundle_dir = os.path.dirname(os.path.abspath(__file__))
 
 regularStyle = xlwt.easyxf(
     'alignment: horiz centre; font: name Microsoft YaHei')
@@ -94,7 +109,7 @@ def getSheet(begin_date, end_date):
 
 def saveSheet(wb, name):
 
-    wb.save(name + '.xls')
+    wb.save(bundle_dir + '/' + name + '.xls')
 
 
 def writeSheet(sheet, start, items):
@@ -255,8 +270,8 @@ def runRequestData(begin_date, end_date, token):
 
     print(u'== 执行成功 ==')
 
-    showwarning(title=u'执行成功', message=u'文件保存为 ' +
-                begin_date + u'-' + end_date + u'.xls')
+    showwarning(title=u'执行成功', message=u'文件保存为: ' + 
+        bundle_dir + '/' + begin_date + u'-' + end_date + u'.xls')
 
 # 初始化输入框
 

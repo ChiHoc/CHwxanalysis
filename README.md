@@ -28,9 +28,7 @@
 
 **Mac打包**
 
-目前在mac上打包成功，但是运行失败了。
-
-貌似是tkinker在Sierra上有bug，程序的界面没有设定约束，导致界面渲染出错。
+`pyinstaller -w -F --hidden-import appdirs --hidden-import packaging.requirements --hidden-import packaging.specifiers --hidden-import packaging.version --hidden-import packaging wxanalysis_py2.py`
 
 ## Command Line
 
