@@ -14,6 +14,7 @@ from tkMessageBox import showwarning
 from pycookiecheat import chrome_cookies
 import sys
 import platform
+import time
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -43,17 +44,15 @@ def getRequestCount(begin_date, end_date):
 
     endDate = datetime.strptime(end_date, '%Y-%m-%d')
 
-    count = math.ceil((endDate - beginDate).days / 100.0)
+    count = math.ceil((endDate - beginDate).days / 30.0)
 
     dates = []
 
     for index in range(0, int(count) - 1):
 
-        beginDate = (beginDate + timedelta(days=100))
+        beginDate = (beginDate + timedelta(days=30))
 
         dates.append(beginDate.strftime('%Y-%m-%d'))
-
-    dates.append(endDate.strftime('%Y-%m-%d'))
 
     print(u'== 根据时间间隔需要请求' + str(int(count)) + u'次 ==')
 
@@ -232,6 +231,8 @@ def getWechatData(begin_date, end_date, token):
 
         print(u'== 未知错误，请联系陈艾森 ==')
 
+        print response.text
+
         showwarning(title=u'未知错误', message=u'请联系陈艾森')
 
         return -1
@@ -265,6 +266,8 @@ def runRequestData(begin_date, end_date, token):
         index = writeSheet(sheet, index, items)
 
         startTime = date
+
+        time.sleep(1)
 
     saveSheet(wb, begin_date + '-' + end_date)
 
