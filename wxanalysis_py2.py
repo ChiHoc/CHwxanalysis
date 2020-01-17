@@ -44,15 +44,17 @@ def getRequestCount(begin_date, end_date):
 
     endDate = datetime.strptime(end_date, '%Y-%m-%d')
 
-    count = math.ceil((endDate - beginDate).days / 30.0)
+    count = math.ceil((endDate - beginDate).days / 29.0)
 
     dates = []
 
     for index in range(0, int(count) - 1):
 
-        beginDate = (beginDate + timedelta(days=30))
+        beginDate = (beginDate + timedelta(days=29))
 
         dates.append(beginDate.strftime('%Y-%m-%d'))
+
+    dates.append(end_date)
 
     print(u'== 根据时间间隔需要请求' + str(int(count)) + u'次 ==')
 
@@ -184,10 +186,14 @@ def getWechatData(begin_date, end_date, token):
         'cache-control': 'no-cache',
     }
 
-    cookies = chrome_cookies('http://mp.weixin.qq.com')
+    cookies = chrome_cookies('https://mp.weixin.qq.com')
+
+    print(params)
 
     response = requests.request(
         'GET', url, headers=headers, params=params, cookies=cookies)
+
+    print(response.text)
 
     respJson = json.loads(response.text)
 
